@@ -1,8 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
-import Home from './src/Home';
+import Login from './src/Login';
+import { THEMES } from './src/styles/style';
+import {NativeBaseProvider, StatusBar} from 'native-base';
 
 export default function App() {
   return (
-    <Home />
+    <NativeBaseProvider theme={THEMES}>
+      <StatusBar backgroundColor={THEMES.colors.black}/>
+      <Login />
+    </NativeBaseProvider>
   );
 }
