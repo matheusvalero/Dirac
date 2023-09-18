@@ -1,12 +1,13 @@
-import Login from './src/Login';
-import { THEMES } from './src/styles/style';
-import {NativeBaseProvider, StatusBar} from 'native-base';
+import { NativeBaseProvider, StatusBar } from 'native-base';
+
+import { TEMAS } from './src/estilos/temas';
+import Rotas from './src/Rotas';
 
 export default function App() {
   return (
-    <NativeBaseProvider theme={THEMES}>
-      <StatusBar backgroundColor={THEMES.colors.black}/>
-      <Login />
+    <NativeBaseProvider theme={TEMAS}>
+      <StatusBar backgroundColor={TEMAS.colors.blue[800]} />
+      <Rotas />
     </NativeBaseProvider>
   );
 }

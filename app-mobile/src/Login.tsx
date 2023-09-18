@@ -1,56 +1,41 @@
+import { VStack, Image, Text, Box, Link } from 'native-base'
 import { TouchableOpacity } from 'react-native';
-import { Box, Button, VStack, FormControl, Image, Input, Link, Text } from 'native-base';
 import Logo from './assets/sensegestao.png'
+import { Botao } from './componentes/Botao';
+import { EntradaTexto } from './componentes/EntradaTexto';
+import { Titulo } from './componentes/Titulo';
 
-export default function Login() {
+export default function Login({ navigation }) {
   return (
-    <VStack flex={1} alignItems="center" justifyContent='center' p={5} >
-      <Image source={Logo} alt="Logo Sense" />
+    <VStack flex={1} alignItems="center" justifyContent="center" p={5}>
+      <Image source={Logo} alt="Logo App" />
 
-      <Text
-        color="gray.500"
-        fontWeight="bold"
-        textAlign="center"
-        mt={5}
-      >
-        Faça Login em Sua Conta:
-      </Text>
-
+      <Titulo>
+        Faça login em sua conta
+      </Titulo>
       <Box>
-        <FormControl mt={3}>
-          <FormControl.Label>Email:</FormControl.Label>
-          <Input placeholder='Insira seu Endereço de E-mail'
-          size='lg'
-          w='100%'
-          borderRadius='lg'
-          shadow={3}
-          bgColor='gray.100'
-          />
-        </FormControl>
-
-        <FormControl mt={3}>
-          <FormControl.Label>Senha:</FormControl.Label>
-          <Input placeholder='Insira sua Senha de Acesso'
-          size='lg'
-          w='100%'
-          borderRadius='lg'
-          shadow={3}
-          bgColor='gray.100'
-          />
-        </FormControl>
+        <EntradaTexto
+          label="Email"
+          placeholder="Insira seu endereço de e-mail"
+        />
+        <EntradaTexto
+          label="Senha"
+          placeholder="Insira sua senha"
+        />
       </Box>
+      <Botao onPress={() => navigation.navigate('Tabs')}>Entrar</Botao>
 
-      <Button w="100%" bg='blue.800' mt={10} borderRadius='lg'>
-        Entrar
-      </Button>
-
-      <Link href=''>
+      <Link href='https://www.alura.com.br' mt={2}>
         Esqueceu sua senha?
       </Link>
 
-      <Box w='100%' flexDirection='row' justifyContent='center'>
-        <Text>Ainda não possui uma conta? </Text>
-        <TouchableOpacity><Text color='blue'>Faça seu Cadastro</Text></TouchableOpacity>
+      <Box w="100%" flexDirection="row" justifyContent="center" mt={8}>
+        <Text>Ainda não tem cadastro? </Text>
+        <TouchableOpacity onPress={() => navigation.navigate('Cadastro')}>
+          <Text color="blue.500">
+            Faça seu cadastro!
+          </Text>
+        </TouchableOpacity>
       </Box>
     </VStack>
   );
