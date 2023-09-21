@@ -1,2 +1,0 @@
-# Teste-Dev.Mobile-sensedata
- 
